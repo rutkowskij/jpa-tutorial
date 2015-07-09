@@ -10,21 +10,17 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "customer_t")
+@Document
 public class Customer {
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private Long id;
-	@Column
+	private String id;
 	private String name;
-	@Column
 	private String email;
-	@Column
 	private String address;
 
 }

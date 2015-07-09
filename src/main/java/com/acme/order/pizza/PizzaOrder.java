@@ -2,44 +2,27 @@ package com.acme.order.pizza;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.acme.order.OrderStatus;
 import com.acme.order.customer.Customer;
 
 @Data
 @NoArgsConstructor
-@Entity
-@Table(name = "order_t")
+@Document
 public class PizzaOrder {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private Long id;
-	@ManyToOne
-	@JoinColumn(name = "customer_id")
+	private String id;
 	private Customer customer;
-	@Column
-	@Enumerated(EnumType.STRING)
 	private PizzaType type;
-	@Column
-	@Enumerated(EnumType.STRING)
 	private OrderStatus status;
-	@Column(name = "estimatedDeliveryTime")
 	private Date estimatedDeliveryTime;
-	@Column(name = "finishTime")
 	private Date finishTime;
 
 	public PizzaOrder(Customer customer, PizzaType type) {

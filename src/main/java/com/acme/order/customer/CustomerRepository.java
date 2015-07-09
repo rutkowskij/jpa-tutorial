@@ -1,6 +1,6 @@
 package com.acme.order.customer;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface CustomerRepository extends CrudRepository<Customer, Long> {
+public interface CustomerRepository extends MongoRepository<Customer, String> {
 }

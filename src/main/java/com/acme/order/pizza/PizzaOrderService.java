@@ -6,11 +6,11 @@ import com.acme.order.customer.Customer;
 
 public interface PizzaOrderService {
 
-	Long createOrder(Customer customer, PizzaType type);
+	String createOrder(Customer customer, PizzaType type);
 
-	void cancelOrder(Long pizzaOrderId);
+	void cancelOrder(String pizzaOrderId);
 
-	void deliverOrder(Long pizzaOrderId);
+	void deliverOrder(String pizzaOrderId);
 
 	List<PizzaOrder> fetchOrders();
 

@@ -43,7 +43,7 @@ public class PizzaOrderServiceImpl implements PizzaOrderService {
 	}
 
 	@Override
-	public Long createOrder(Customer customer, PizzaType type) {
+	public String createOrder(Customer customer, PizzaType type) {
 		PizzaOrder order = null;
 		try {
 			log.info("##############################");
@@ -63,7 +63,7 @@ public class PizzaOrderServiceImpl implements PizzaOrderService {
 	}
 
 	@Override
-	public void cancelOrder(Long pizzaOrderId) {
+	public void cancelOrder(String pizzaOrderId) {
 		log.info("Cancelling order with id: {}", pizzaOrderId);
 		PizzaOrder order = orderRepository.findOne(pizzaOrderId);
 		order.cancel();
@@ -73,7 +73,7 @@ public class PizzaOrderServiceImpl implements PizzaOrderService {
 	}
 
 	@Override
-	public void deliverOrder(Long pizzaOrderId) {
+	public void deliverOrder(String pizzaOrderId) {
 		log.info("Delivering order with id: {}", pizzaOrderId);
 		PizzaOrder order = orderRepository.findOne(pizzaOrderId);
 		order.deliver();
