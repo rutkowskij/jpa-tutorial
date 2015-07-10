@@ -1,22 +1,20 @@
 package com.acme.order.customer;
 
-import javax.persistence.Id;
-
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Document
-public class Customer {
+public class CustomerType {
 	@Id
-	private String id;
+	private String string;
 	private String name;
-	private String email;
-	private String address;
-	private CustomerType type;
 }
